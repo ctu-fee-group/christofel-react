@@ -9,7 +9,7 @@ interface HeadProps {
 }
 
 const Head: FC<HeadProps> = ({
-  title = 'Next App Template',
+  title = 'Christofel',
   description,
   ogUrl = '',
   ogImage = '',

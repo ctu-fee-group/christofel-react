@@ -1,6 +1,12 @@
 const { withSentryConfig } = require("@sentry/nextjs");
 
 const moduleExports = {
+  env: {
+    oauthDiscordUrl: process.env.OAUTH_DISCORD_URL,
+    oauthCtuUrl: process.env.OAUTH_CTU_URL,
+    oauthDiscordRedirectUri: process.env.OAUTH_DISCORD_REDIRECT_URI,
+    oauthCtuRedirectUri: process.env.OAUTH_CTU_REDIRECT_URI,
+  },
   reactStrictMode: true,
   sentry: {
     disableServerWebpackPlugin: true,

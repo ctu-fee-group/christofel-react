@@ -1,29 +1,8 @@
 html, body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
+
 
     background: rgb(200,200,200);
     background: linear-gradient(315deg, rgba(200,200,200,1) 0%, rgba(255,255,255,1) 100%);
-}
-
-h1 {
-    padding: 0.6em 0em 0em 0em;
-    margin: auto;
-    font-size: 80px;
-    font-family: 'Helvetica', sans-serif, bold;
-    text-align: center;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-}
-h1.smaller {
-    padding: 1.0em 0em 0.4em 0em;
-    font-size: 40px;
-}
-h2 {
-    margin: auto;
-    font-family: 'Helvetica', sans-serif, bold;
-    text-align: center;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .centered_img {
@@ -33,95 +12,10 @@ h2 {
   width: 40%;
 }
 
-div.error_bg {
-    color: white;
-    background-color: #0065bd;
-    width: 100%; 
-    height: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-div.error_box {
-    margin: auto;
-    width: 400px;
-}
-div.login_box {
-    margin: auto;
-    color: white;
-    background-color: #0065bd;
-    min-height: 100vh;
-}
-div.button_box {
-    margin: 4em 2em 0 2em;
-}
-
-a.button {
-    padding: 1em 0em;
-    margin: 0.8em 0em;
-    background-color: hsl(208 100% 29% / 1);
-    border-radius: 5px;
-    border: none;
-    color: white;
-    font-size: 18px;
-    font-family: 'Helvetica', sans-serif, bold;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    width: 100%;
-    box-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.25);
-}
-
-
-
-a.button:hover{
-    color:hsl(0 0% 100% / 0.95);
-    background-color: hsl(208 100% 31% / 1);
-    box-shadow: 0.03em 0.03em 0.3em rgba(0, 0, 0, 0.25);
-}
-a.button:active{
-    color:hsl(0 0% 90% / 0.8);
-    box-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.2);
-}
-
-a.authorized, a.authorized:hover{
-    background-color: #009241;
-    box-shadow: 0em 0em 0.1em hsl(147 100% 30% / 25%);
-    pointer-events: none;
-    cursor: default;
-}
-
-a.disabled {
-  color:hsl(0 0% 70% / 0.7);
-  background-color: hsl(208 100% 31%/ 0.7);
-  box-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.2);
-  pointer-events: none;
-  cursor: default;
-}
-
 @media only screen and (min-width: 768px) {
     body {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
-    div.login_box {
-        width: 400px;
-        min-height: 500px;
-        height: 500px;
-
-        box-shadow: 3px 3px 20px grey;
-        border-radius: 10px;
-
-        padding-bottom: 50px;
-    }
-
-    div.button_box {
-        padding: 0px 0px;
-        margin: 40px 40px;
-    }
 }
-
