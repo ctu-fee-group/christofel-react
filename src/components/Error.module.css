@@ -15,10 +15,8 @@ div.error_box {
 }
 
 .centered_img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
+    display: flex;
+    justify-content: center;
 }
 
 .error_box h1.smaller {

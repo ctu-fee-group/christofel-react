@@ -20,7 +20,7 @@ const Error: FC<ErrorProps> = ({message, redirectUri}) => {
     return (<div className={styles.error_bg}>
         <div className={styles.error_box}>
             <div className={styles.centered_img}>
-                <Image src="/img/christofelerror.png" width={70} height={70}/>
+                <Image src="/img/christofelerror.png" alt="Error indicator"  width={128} height={128}/>
             </div>
             <h1 className={styles.smaller}>Chyba</h1>
             <h2>{message}</h2>
