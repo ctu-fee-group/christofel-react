@@ -1,6 +1,6 @@
 import {FC} from 'react';
-import UserError from "../data/UserError";
 import {ApolloError} from "@apollo/client";
+import UserError from "../data/UserError";
 import Error from "./Error";
 import {getUserErrors} from "../data/graphql";
 import UserErrorCode from "../data/UserErrorCode";
@@ -27,28 +27,42 @@ const getErrorMessage = (error: UserError): string => {
             return "Uživatel, za kterého se snažíte přihlásit, není na FEL Discord serveru. Ověřte, že se ověřujete za správného uživatele.";
         case UserErrorCode.Unspecified:
             return "Došlo k nespecifikované chybě. Ozvěte se do kanálu #podpora.";
+        default:
+            return error.message;
     }
-
-    return error.message;
 }
 
-const UserErrors: FC<UserErrorProps> = (props) => {
-    let message = props.defaultMessage ?? "Chyba";
+const UserErrors: FC<UserErrorProps> = ({
+                                            responseData,
+                                            defaultMessage,
+                                            userErrors: userErrors1,
+                                            redirectUri,
+                                            apolloError
+                                        }) => {
+    let message = defaultMessage ?? "Chyba";
 
     let userErrors = null;
-    if (props.responseData) {
-        userErrors = getUserErrors(props.responseData);
-    } else if (props.userErrors) {
-        userErrors = props.userErrors;
+    if (responseData) {
+        userErrors = getUserErrors(responseData);
+    } else if (userErrors1) {
+        userErrors = userErrors1;
     }
 
     if (userErrors?.length) {
         message = userErrors?.map(x => getErrorMessage(x)).join(' ');
-    } else if (props.apolloError) {
+    } else if (apolloError) {
         message = "Došlo k chybě při komunikaci s API.";
     }
 
-    return <Error message={message} redirect_uri={props.redirectUri} />;
+    return <Error message={message} redirectUri={redirectUri}/>;
 }
+
+UserErrors.defaultProps = {
+    userErrors: undefined,
+    responseData: undefined,
+    apolloError: undefined,
+    defaultMessage: "Chyba",
+    redirectUri: undefined,
+};
 
 export default UserErrors;

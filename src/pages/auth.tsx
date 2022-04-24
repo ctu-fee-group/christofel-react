@@ -1,23 +1,23 @@
 import {FC} from 'react';
-import Error from "../components/Error";
-import RegisterBox from "../components/RegisterBox";
 import {useRouter} from "next/router"
 import {useQuery} from "@apollo/client";
+import {RingLoader} from "react-spinners";
+import * as Sentry from "@sentry/nextjs";
+import RegisterBox from "../components/RegisterBox";
 import {
     RegistrationCodeVerification,
     VerifyRegistrationCodePayload,
     VerifyRegistrationCodeQuery
 } from "../data/VerifyRegistrationCode";
 import UserErrors from "../components/UserErrors";
-import {isError} from "../data/graphql";
-import {RingLoader} from "react-spinners";
+import {getUserErrors, isError} from "../data/graphql";
 
 const Auth: FC = () => {
     const router = useRouter();
     let code = router.query.code?.toString();
     const {data, loading, error} = useQuery<VerifyRegistrationCodePayload>(VerifyRegistrationCodeQuery, {
         variables: {
-            code: code,
+            code,
         },
         skip: code == null
     });
@@ -34,7 +34,8 @@ const Auth: FC = () => {
             return <RingLoader color="#0065bd" size={100} />;
         }
 
-        if (isError(data, error) || data == undefined) {
+        if (isError(data, error) || !data) {
+            Sentry.captureException({errors: error, userErrors: getUserErrors(data)});
             return <UserErrors responseData={data} apolloError={error}
                                defaultMessage="Došlo k chybě při načítání stavu registrace."/>;
         }
@@ -51,6 +52,9 @@ const Auth: FC = () => {
             case RegistrationCodeVerification.NotValid:
                 router.push("/auth");
                 code = undefined;
+                break;
+            default:
+                // ignore
                 break;
         }
     }

@@ -1,8 +1,6 @@
 import {FC} from "react";
 import RegisterBox from "../../components/RegisterBox";
 
-const Success: FC = () => {
-    return <RegisterBox discordSuccess={true} ctuSuccess={true}/>;
-};
+const Success: FC = () => <RegisterBox discordSuccess ctuSuccess/>;
 
 export default Success;

@@ -17,10 +17,17 @@
   ],
   "rules": {
     "react/jsx-props-no-spreading": "off",
+    "react/static-property-placement": "off",
     "import/no-extraneous-dependencies": [
       "error",
       {
         "devDependencies": [".storybook/**", "stories/**"]
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      2,
+      {
+        "args": "none"
       }
     ]
   }

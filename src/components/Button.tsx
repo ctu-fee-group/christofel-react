@@ -1,6 +1,6 @@
 import {FC} from 'react';
-import styles from './Button.module.css';
 import Link from "next/link";
+import styles from './Button.module.css';
 
 interface ButtonProps {
     href: string;
@@ -9,20 +9,21 @@ interface ButtonProps {
     children: any;
 }
 
-const Button : FC<ButtonProps> = (props) => {
-    let classes = [styles.button];
-    if (props.success) {
+const Button: FC<ButtonProps> = ({success, disabled, href, children}) => {
+    const classes = [styles.button];
+    if (success) {
         classes.push(styles.success);
     }
 
-    if (props.disabled) {
+    if (disabled) {
         classes.push(styles.disabled);
     }
 
     return (
-        <Link href={props.href}>
+        <Link href={href}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className={classes.join(' ')}>
-                {props.children}
+                {children}
             </a>
         </Link>
     );

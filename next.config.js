@@ -6,6 +6,7 @@ const moduleExports = {
     oauthCtuUrl: process.env.OAUTH_CTU_URL,
     oauthDiscordRedirectUri: process.env.OAUTH_DISCORD_REDIRECT_URI,
     oauthCtuRedirectUri: process.env.OAUTH_CTU_REDIRECT_URI,
+    sentryDsn: process.env.SENTRY_DSN
   },
   reactStrictMode: true,
   sentry: {

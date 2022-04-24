@@ -1,4 +1,4 @@
-import {Component, FC} from 'react';
+import {FC} from 'react';
 import styles from './Box.module.css';
 
 interface BoxProps {
@@ -7,15 +7,13 @@ interface BoxProps {
     children: any;
 }
 
-const Box: FC<BoxProps> = (props) => {
-    return (
-        <div className={styles.box}>
-            <h1>{props.title}</h1>
-            <h2>{props.subtitle}</h2>
+const Box: FC<BoxProps> = ({title, subtitle, children}) => (
+    <div className={styles.box}>
+        <h1>{title}</h1>
+        <h2>{subtitle}</h2>
 
-            {props.children}
-        </div>
-    );
-}
+        {children}
+    </div>
+)
 
 export default Box;
