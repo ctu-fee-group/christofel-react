@@ -1,4 +1,4 @@
-const { withSentryConfig } = require("@sentry/nextjs");
+const { withSentryConfig } = require('@sentry/nextjs');
 
 const moduleExports = {
   env: {
@@ -6,7 +6,8 @@ const moduleExports = {
     oauthCtuUrl: process.env.OAUTH_CTU_URL,
     oauthDiscordRedirectUri: process.env.OAUTH_DISCORD_REDIRECT_URI,
     oauthCtuRedirectUri: process.env.OAUTH_CTU_REDIRECT_URI,
-    sentryDsn: process.env.SENTRY_DSN
+    sentryDsn: process.env.SENTRY_DSN,
+    apiUrl: process.env.API_URL,
   },
   reactStrictMode: true,
   sentry: {
@@ -14,7 +15,6 @@ const moduleExports = {
     disableClientWebpackPlugin: true,
   },
 };
-
 
 const SentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that
@@ -30,8 +30,10 @@ const SentryWebpackPluginOptions = {
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
-})
+});
 
 // Make sure adding Sentry options is the last code to run before exporting, to
 // ensure that your source maps include changes from all other Webpack plugins
-module.exports = withBundleAnalyzer(withSentryConfig(moduleExports, SentryWebpackPluginOptions));
+module.exports = withBundleAnalyzer(
+  withSentryConfig(moduleExports, SentryWebpackPluginOptions)
+);
