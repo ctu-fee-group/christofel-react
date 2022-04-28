@@ -1,0 +1,24 @@
+version: '3'
+services:
+  web:
+    networks:
+      - traefik-proxy
+    build: .
+    volumes:
+      - ./.env:/app/.env
+    ports:
+      - "3000:3000"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.christofel.rule=Host(`discord2.christofel.cz`)
+      - traefik.http.routers.christofel.tls=true
+      - traefik.http.routers.christofel.tls.certResolver=leresolver
+      - traefik.http.routers.christofel.entrypoints=websecure
+      - traefik.http.services.christofel.loadbalancer.server.port=3000
+
+      - traefik.http.routers.christofel-unsecure.rule=Host(`discord2.christofel.cz`)
+      - traefik.http.routers.christofel-unsecure.entrypoints=web
+      - traefik.http.routers.christofel-unsecure.middlewares=redirect-to-https
+networks:
+  traefik-proxy:
+    external: true

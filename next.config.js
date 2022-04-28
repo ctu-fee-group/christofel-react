@@ -9,10 +9,13 @@ const moduleExports = {
     sentryDsn: process.env.SENTRY_DSN,
     apiUrl: process.env.API_URL,
   },
-  reactStrictMode: true,
   sentry: {
     disableServerWebpackPlugin: true,
     disableClientWebpackPlugin: true,
+  },
+  reactStrictMode: true,
+  experimental: {
+    outputStandalone: true,
   },
 };
 
