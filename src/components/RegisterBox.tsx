@@ -65,9 +65,13 @@ class RegisterBox extends Component<RegisterBoxProps> {
             ČVUT přihlášení
           </Button>
 
-          <h2>Úspěšné ověření</h2>
           {ctuSuccess && discordSuccess && (
-            <h2>Nyní můžeš okno zavřít a vrátit se na server.</h2>
+            <>
+              <h2>Úspěšné ověření</h2>
+              <h2 className={styles.smaller}>
+                Nyní můžeš okno zavřít a vrátit se na server.
+              </h2>
+            </>
           )}
         </div>
       </Box>

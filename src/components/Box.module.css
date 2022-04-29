@@ -1,41 +1,46 @@
 .box h1 {
-    padding: 0.6em 0em 0em 0em;
-    margin: auto;
-    font-size: 80px;
-    font-family: 'Helvetica', sans-serif, bold;
-    text-align: center;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  padding: 0.6em 0 0 0;
+  margin: auto;
+  font-size: 80px;
+  font-family: 'Helvetica', sans-serif, bold;
+  text-align: center;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .box h2 {
-    margin: auto;
-    font-family: 'Helvetica', sans-serif, bold;
-    text-align: center;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  font-family: 'Helvetica', sans-serif, bold;
+  text-align: center;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 div.box {
-    margin: auto;
-    color: white;
-    background-color: #0065bd;
-    min-height: 100vh;
-    min-width: 100vw;
+  margin: auto;
+  color: white;
+  background-color: #0065bd;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 div.button_box {
-    margin: 4em 2em 0 2em;
+  margin: 4em 2em 0 2em;
+}
+
+.button_box h2.smaller {
+  padding-top: 5px;
+  font-size: 1.3em;
 }
 
 @media only screen and (min-width: 768px) {
-    div.box {
-        width: 400px;
-        min-height: 500px;
-        min-width: auto;
-        box-shadow: 3px 3px 20px grey;
-        border-radius: 10px;
-    }
+  div.box {
+    width: 400px;
+    min-height: 500px;
+    min-width: auto;
+    box-shadow: 3px 3px 20px grey;
+    border-radius: 10px;
+  }
 
-    div.button_box {
-        padding: 0px 0px;
-        margin: 40px 40px;
-    }
+  div.button_box {
+    padding: 0 0;
+    margin: 40px 40px;
+  }
 }
