@@ -14,7 +14,7 @@ class RegisterBox extends Component<RegisterBoxProps> {
     code: undefined,
   };
 
-  private static createCodeUrl(
+  public static createCodeUrl(
     url: string | undefined,
     code?: string | undefined
   ): string {
