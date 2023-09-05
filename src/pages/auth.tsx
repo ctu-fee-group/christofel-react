@@ -77,7 +77,9 @@ const Auth: FC = () => {
       code
     );
     const ctuOauthUrl = RegisterBox.createCodeUrl(
-      process.env.oauthCtuUrl,
+      process.env.oauthCtuVariant === 'fel'
+        ? process.env.oauthCtuFelUrl
+        : process.env.oauthCtuFitUrl,
       code
     );
 

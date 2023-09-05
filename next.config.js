@@ -3,7 +3,9 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const moduleExports = {
   env: {
     oauthDiscordUrl: process.env.OAUTH_DISCORD_URL,
-    oauthCtuUrl: process.env.OAUTH_CTU_URL,
+    oauthCtuFitUrl: process.env.OAUTH_CTU_FIT_URL,
+    oauthCtuFelUrl: process.env.OAUTH_CTU_FEL_URL,
+    oauthCtuVariant: process.env.OAUTH_CTU_VARIANT,
     oauthDiscordRedirectUri: process.env.OAUTH_DISCORD_REDIRECT_URI,
     oauthCtuRedirectUri: process.env.OAUTH_CTU_REDIRECT_URI,
     sentryDsn: process.env.SENTRY_DSN,
